@@ -1,15 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Prenotazione biglietti del treno</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style.css">
-</head>
-<body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>    
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="container-sm">
+      <h1>BOOLTRAIN LINE</h1>
+      <h2 class="text-center">CALCOLA IL PREZZO DEL TUO BIGLIETTO</h2>
+      <!-- Note: A custom script is used to activate validation:
+
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+                }, false)
+            })
+            -->
+      <form
+        class="row justify-content-center g-3 needs-validation"
+        novalidate="">
+        <div class="col-md-4">
+          <label for="passengerName" class="form-label">Nome Cognome</label>
+          <input
+            type="text"
+            class="form-control"
+            id="passengerName"
+            placeholder="Tizio Caio"
+            required />
+        </div>
+        <div class="col-md-4">
+          <label for="passengerKm" class="form-label">Km tratta</label>
+          <input
+            type="text"
+            class="form-control"
+            id="passengerKm"
+            placeholder="10 Km"
+            required />
+        </div>
+        <div class="col-md-4">
+          <label for="passengerAge" class="form-label">Seleziona l'età</label>
+          <select class="form-select" id="passengerAge" required="">
+            <option id="minorenne">Minorenne 0-18 anni</option>
+            <option id="adulto">Adulto 18+ anni</option>
+            <option id="over65">Over 65 65+ anni</option>
+          </select>
+          <div class="invalid-feedback">Please select a valid state.</div>
+        </div>
+        <div class="col-md-1 text-center">
+          <button class="btn btn-primary" type="button" id="generateTiket">
+            Genera
+          </button>
+        </div>
+        <div class="col-md-1 text-center">
+          <button class="btn btn-primary" type="button" id="cancelTiket">
+            Annulla
+          </button>
+        </div>
+      </form>
+
+      <h2 class="text-center">I TUOI BIGLIETTI</h2>
+      <div class="row">
+        <div class="col-12">
+          <div class="card-group">
+            <div class="card">
+              <div class="card-header">NOME PASSEGGERO</div>
+              <div class="card-body"></div>
+            </div>
+            <div class="card">
+              <div class="card-header">Offerte</div>
+              <div class="card-body"></div>
+            </div>
+            <div class="card">
+              <div class="card-header">Carrozza</div>
+              <div class="card-body"></div>
+            </div>
+            <div class="card">
+              <div class="card-header">Codice CP</div>
+              <div class="card-body"></div>
+            </div>
+            <div class="card">
+              <div class="card-header">Costo biglietto</div>
+              <div class="card-body"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <h2>I TUOI BIGLIETTI</h2> -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
     <script type="text/javascript" src="./js/main.js"></script>
-</body>
+  </body>
 </html>
