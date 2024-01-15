@@ -1,7 +1,8 @@
 # js-biglietto-treno-form
 
 ## traccia
-@here 
+
+@here
 
 Ciao ragazzi,
 
@@ -12,10 +13,12 @@ cartella/repo: js-biglietto-treno-form
 Descrizione:
 
 Scrivere un programma che chieda all'utente:
+
 - Il numero di chilometri da percorrere
 - Età del passeggero
 
 Sulla base di queste informazioni dovrà calcolare il prezzo totale del biglietto di viaggio, secondo le seguenti regole:
+
 - il prezzo del biglietto è definito in base ai km (0.21 € al km)
 - va applicato uno sconto del 20% per i minorenni
 - va applicato uno sconto del 40% per gli over 65.
@@ -37,5 +40,39 @@ Nota:
 
 Se non vi sentite particolarmente creativi, questa potrebbe essere un'implementazione da seguire per il secondo milestone. Potete scegliere di implementare una soluzione completamente diversa oppure simile, ma in ogni caso cercate di farla vostra.
 
-## svolgimento 
+## svolgimento
 
+- inizializo costanti con assegnati gli elementi necessari raccolti dal html
+- inizializo una costante del prezzo al km
+- inizializo la variabile costo del biglietto
+- creo un evento del bottone _genera tiket_ al click con funzione =>
+
+  - inizializo costanti con assegnati i valori dei input della pagina
+  - calcolo il prezzo del biglietto normale
+  - inizializzo variabile offerta
+  <!-- ora applico le offerte inbase al valore dell'input età-->
+  - **IF** valore delò'età e uguale alla stringa _minorenne_
+    - calcolo il 80% del costo biglietto
+    - assegno ad _offerta_ il valore 20%
+  - else
+    - **IF** valore delò'età e uguale alla stringa _over65_
+    - calcolo il 60% del costo biglietto
+    - assegno ad _offerta_ il valore 40%
+
+  -aggiusto il costo biglieto a due cifre dopo l'unità
+
+  - inizializo una variabile numero carrozza e assegno un numero randomico
+  - inizializo una variabile codice cp e assegno un numero randomico
+
+  <!-- ora apppendo i dati nel html per mezzo di una ricerca con selettori-->
+
+  - appendo il nome cognome
+  - appendo la offerta
+  - appendo il numero carrozza
+  - appendo il codice cp
+  - appendo il prezzo biglietto
+
+- creo un evento del bottone _annulla tiket_ al click con funzione =>
+  - azzero il vaolore del input nome cognome
+  - azzero il vaolore del input km
+  - azzero il vaolore del input età

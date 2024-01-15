@@ -14,94 +14,96 @@
   </head>
   <body>
     <div class="container-sm">
-      <h1>BOOLTRAIN LINE</h1>
-      <h2 class="text-center">CALCOLA IL PREZZO DEL TUO BIGLIETTO</h2>
-      <!-- Note: A custom script is used to activate validation:
+      <section id="calcTiketSection">
+        <h1>BOOLTRAIN LINE</h1>
+        <h2 class="text-center">CALCOLA IL PREZZO DEL TUO BIGLIETTO</h2>
+        <!-- Note: A custom script is used to activate validation:
+              var forms = document.querySelectorAll('.needs-validation')
+              Array.prototype.slice.call(forms)
+              .forEach(function (form) {
+                  form.addEventListener('submit', function (event) {
+                  if (!form.checkValidity()) {
+                      event.preventDefault()
+                      event.stopPropagation()
+                  }
+                  form.classList.add('was-validated')
+                  }, false)
+              })
+              -->
+        <form
+          class="row justify-content-center g-3 needs-validation"
+          novalidate="">
+          <div class="col-md-4">
+            <label for="passengerName" class="form-label">Nome Cognome</label>
+            <input
+              type="text"
+              class="form-control"
+              id="passengerName"
+              placeholder="Tizio Caio"
+              required="" />
+              <div class="invalid-feedback">More example invalid feedback text</div>
+          </div>
+          <div class="col-md-4">
+            <label for="passengerKm" class="form-label">Km tratta</label>
+            <input
+              type="text"
+              class="form-control"
+              id="passengerKm"
+              placeholder="10 Km"
+              required="" />
+              <div class="invalid-feedback">More example invalid feedback text</div>
+          </div>
+          <div class="col-md-4">
+            <label for="passengerAge" class="form-label">Seleziona l'età</label>
+            <select class="form-select" id="passengerAge" required="">
+              <option value="minorenne">Minorenne 0-18 anni</option>
+              <option value="adulto">Adulto 18+ anni</option>
+              <option value="over65">Over 65 65+ anni</option>
+            </select>
+            <div class="invalid-feedback">More example invalid feedback text</div>
+          </div>
+          <div class="col-md-1 text-center">
+            <button class="btn btn-primary" type="button" id="generateTiket">
+              Genera
+            </button>
+          </div>
+          <div class="col-md-1 text-center">
+            <button class="btn btn-primary" type="button" id="cancelTiket">
+              Annulla
+            </button>
+          </div>
+        </form>
+      </section>
 
-            var forms = document.querySelectorAll('.needs-validation')
-            Array.prototype.slice.call(forms)
-            .forEach(function (form) {
-                form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
-                    event.preventDefault()
-                    event.stopPropagation()
-                }
-
-                form.classList.add('was-validated')
-                }, false)
-            })
-            -->
-      <form
-        class="row justify-content-center g-3 needs-validation"
-        novalidate="">
-        <div class="col-md-4">
-          <label for="passengerName" class="form-label">Nome Cognome</label>
-          <input
-            type="text"
-            class="form-control"
-            id="passengerName"
-            placeholder="Tizio Caio"
-            required />
-        </div>
-        <div class="col-md-4">
-          <label for="passengerKm" class="form-label">Km tratta</label>
-          <input
-            type="text"
-            class="form-control"
-            id="passengerKm"
-            placeholder="10 Km"
-            required />
-        </div>
-        <div class="col-md-4">
-          <label for="passengerAge" class="form-label">Seleziona l'età</label>
-          <select class="form-select" id="passengerAge" required="">
-            <option id="minorenne">Minorenne 0-18 anni</option>
-            <option id="adulto">Adulto 18+ anni</option>
-            <option id="over65">Over 65 65+ anni</option>
-          </select>
-          <div class="invalid-feedback">Please select a valid state.</div>
-        </div>
-        <div class="col-md-1 text-center">
-          <button class="btn btn-primary" type="button" id="generateTiket">
-            Genera
-          </button>
-        </div>
-        <div class="col-md-1 text-center">
-          <button class="btn btn-primary" type="button" id="cancelTiket">
-            Annulla
-          </button>
-        </div>
-      </form>
-
-      <h2 class="text-center">I TUOI BIGLIETTI</h2>
-      <div class="row">
-        <div class="col-12">
-          <div class="card-group">
-            <div class="card">
-              <div class="card-header">NOME PASSEGGERO</div>
-              <div class="card-body"></div>
-            </div>
-            <div class="card">
-              <div class="card-header">Offerte</div>
-              <div class="card-body"></div>
-            </div>
-            <div class="card">
-              <div class="card-header">Carrozza</div>
-              <div class="card-body"></div>
-            </div>
-            <div class="card">
-              <div class="card-header">Codice CP</div>
-              <div class="card-body"></div>
-            </div>
-            <div class="card">
-              <div class="card-header">Costo biglietto</div>
-              <div class="card-body"></div>
+      <section id="tiketSection" class="d-none">
+        <h2 class="text-center">I TUOI BIGLIETTI</h2>
+        <div id="tiket" class="row">
+          <div class="col-12">
+            <div class="card-group">
+              <div id="tiketNomePassegero" class="card">
+                <div class="card-header">NOME PASSEGGERO</div>
+                <div class="card-body"></div>
+              </div>
+              <div id="tiketOfferte" class="card">
+                <div class="card-header">Offerte</div>
+                <div class="card-body"></div>
+              </div>
+              <div id="tiketCarrozza" class="card">
+                <div class="card-header">Carrozza</div>
+                <div class="card-body"></div>
+              </div>
+              <div id="tiketCodiceCP" class="card">
+                <div class="card-header">Codice CP</div>
+                <div class="card-body"></div>
+              </div>
+              <div id="tiketCostoBiglietto" class="card">
+                <div class="card-header">Costo biglietto</div>
+                <div class="card-body"></div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <!-- <h2>I TUOI BIGLIETTI</h2> -->
+      </section>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
